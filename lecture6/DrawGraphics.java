@@ -3,8 +3,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class DrawGraphics {
-    private static int idx = 0;
-    private static ArrayList<Mover> moverObjs = new ArrayList<Mover>();
+    private int idx = 0;
+    private ArrayList<Mover> moverObjs = new ArrayList<Mover>();
 
     /** Initializes this class for drawing. */
     public DrawGraphics() {
@@ -23,7 +23,7 @@ public class DrawGraphics {
     }
 
     /** Draw the contents of the window on surface. */
-    public static void draw(Graphics surface) {
+    public void draw(Graphics surface) {
         for (int i = 0; i < idx; ++i) {
             moverObjs.get(i).draw(surface);
         }
