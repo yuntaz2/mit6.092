@@ -3,38 +3,30 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class DrawGraphics {
-    private static int bouncerIdx = 0;
-    private static ArrayList<Bouncer> bouncerObjs = new ArrayList<Bouncer>();
-    private static int straightIdx = 0;
-    private static ArrayList<StraightMover> straightObjs = new ArrayList<StraightMover>();
+    private static int idx = 0;
+    private static ArrayList<Mover> moverObjs = new ArrayList<Mover>();
+
 
     /** Initializes this class for drawing. */
     public DrawGraphics() {
-        Rectangle box = new Rectangle(15, 20, Color.RED);
-        bouncerObjs.add(new Bouncer(100, 170, box));
-        bouncerObjs.get(bouncerIdx).setMovementVector(3, 1);
-        bouncerIdx++;
-        Oval circle = new Oval(22, 33, Color.green);
-        bouncerObjs.add(new Bouncer(100, 170, circle));
-        bouncerObjs.get(bouncerIdx).setMovementVector(-3, -1);
-        bouncerIdx++;
-        Rectangle box2 = new Rectangle(15, 51, Color.yellow);
-        straightObjs.add(new StraightMover(155, 155, box2));
-        straightObjs.get(straightIdx).setMovementVector(1, 1);
-        straightIdx++;
-        Oval circle2 = new Oval(36, 14, Color.blue);
-        straightObjs.add(new StraightMover(122, 152, circle2));
-        straightObjs.get(straightIdx).setMovementVector(-1, -1);
-        straightIdx++;
+        moverObjs.add(new Bouncer(100, 170, new Rectangle(15, 20, Color.RED)));
+        moverObjs.get(idx).setMovementVector(3, 1);
+        idx++;
+        moverObjs.add(new Bouncer(100, 170, new Oval(22, 33, Color.green)));
+        moverObjs.get(idx).setMovementVector(-3, -1);
+        idx++;
+        moverObjs.add(new StraightMover(155, 155, new Rectangle(15, 51, Color.yellow)));
+        moverObjs.get(idx).setMovementVector(1, 1);
+        idx++;
+        moverObjs.add(new StraightMover(122, 152, new Oval(36, 14, Color.blue)));
+        moverObjs.get(idx).setMovementVector(-1, -1);
+        idx++;
     }
 
     /** Draw the contents of the window on surface. */
     public static void draw(Graphics surface) {
-        for (int i = 0; i < bouncerIdx; ++i) {
-            bouncerObjs.get(i).draw(surface);
-        }
-        for (int i = 0; i < straightIdx; ++i) {
-            straightObjs.get(i).draw(surface);
+        for (int i = 0; i < idx; ++i) {
+            moverObjs.get(i).draw(surface);
         }
     }
 }
