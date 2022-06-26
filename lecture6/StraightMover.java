@@ -1,23 +1,10 @@
 import java.awt.Graphics;
 
-public class StraightMover implements Mover {
-    private int x;
-    private int y;
-    private int xDirection;
-    private int yDirection;
-    private Sprite sprite;
+public class StraightMover extends CommonMover implements Mover {
 
     /** Create a Bouncer that positions sprite at (startX, startY). */
     public StraightMover(int startX, int startY, Sprite sprite) {
-        x = startX;
-        y = startY;
-        this.sprite = sprite;
-    }
-
-    /** Starts moving the object in the direction (xIncrement, yIncrement). */
-    public void setMovementVector(int xIncrement, int yIncrement) {
-        xDirection = xIncrement;
-        yDirection = yIncrement;
+        super(startX, startY, sprite);
     }
 
     public void draw(Graphics graphics) {

@@ -6,7 +6,6 @@ public class DrawGraphics {
     private static int idx = 0;
     private static ArrayList<Mover> moverObjs = new ArrayList<Mover>();
 
-
     /** Initializes this class for drawing. */
     public DrawGraphics() {
         moverObjs.add(new Bouncer(100, 170, new Rectangle(15, 20, Color.RED)));
